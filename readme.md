@@ -2,6 +2,8 @@
 
 A token vesting implementation with linear unlock schedule on Solana.
 
+For project workflow replication, it is assumed that the default Solana environment is already installed.
+
 ## Installation & Setup
 
 1. Install dependencies:
@@ -53,4 +55,19 @@ chmod +x ./scripts/*.sh
 
 ```shell
 ./scripts/release.sh  USER  0
+```
+
+## Tests
+
+1. Update the `ADMIN` public key in `constants.rs` to `7k9JvtA9rbsWSbJc4q316TYPyrqmA4nvSYTnfaGig7Qr`.
+
+2. Configure the provider in `Anchor.toml`:
+
+   - set `cluster` to `Localnet`
+   - set the `wallet` field to any valid wallet path
+
+3. Run the tests using:
+
+```shell
+anchor test
 ```
