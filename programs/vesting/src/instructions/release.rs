@@ -47,7 +47,7 @@ pub struct Release<'info> {
 
 pub fn release(
     ctx: Context<Release>,
-    _schedule_id: u64,
+    schedule_id: u64,
 ) -> Result<()> {
     let user = &ctx.accounts.user;
 
@@ -87,6 +87,7 @@ pub fn release(
     vesting_schedule.released += release_amount;
 
     emit!(VestingReleased {
+        schedule_id: schedule_id,
         amount: release_amount,
         destination: user.key(),
         released_ts: Clock::get().unwrap().unix_timestamp,

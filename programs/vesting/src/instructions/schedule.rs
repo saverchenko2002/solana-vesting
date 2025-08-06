@@ -64,6 +64,7 @@ pub fn schedule(
     slice_period_seconds: u64,
 ) -> Result<()> {
     let user = &ctx.accounts.user;
+    let admin = &ctx.accounts.admin;
 
     let vesting_info: &mut Box<Account<'_, VestingInfo>> =
         &mut ctx.accounts.vesting_info_account;
@@ -93,7 +94,8 @@ pub fn schedule(
         start_ts: vesting_schedule.start_ts,
         duration: duration,
         slice_period_seconds: slice_period_seconds,
-        amount_total: amount
+        amount_total: amount,
+        initiator: admin.key(),
     });
 
     Ok(())

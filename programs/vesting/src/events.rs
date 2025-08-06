@@ -20,10 +20,12 @@ pub struct VestingScheduleInit {
     pub duration: u64,
     pub slice_period_seconds: u64,
     pub amount_total: u64,
+    pub initiator: Pubkey,
 }
 
 #[event]
 pub struct VestingReleased {
+    pub schedule_id: u64,
     pub amount: u64,
     pub destination: Pubkey,
     pub released_ts: i64,

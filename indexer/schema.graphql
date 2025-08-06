@@ -1,0 +1,31 @@
+type TreasuryInit @entity {
+  id: ID!
+  init: Boolean!
+  mint: String!
+  timestamp: BigInt!
+}
+
+type TreasuryFill @entity {
+  id: ID!
+  amount: BigDecimal!
+  fillAt: BigInt!
+}
+
+type VestingSchedule @entity {
+  id: ID!
+  beneficiary: String!
+  startTs: BigInt!
+  duration: BigInt!
+  slicePeriodSeconds: BigInt!
+  amountTotal: BigDecimal!
+  timestamp: BigInt!
+  initiator: String!
+}
+
+type ReleaseEntry @entity {
+  id: ID!
+  destination: String!
+  amountReleased: BigDecimal!
+  isFinished: Boolean!
+  timestamp: BigInt!
+}

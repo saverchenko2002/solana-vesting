@@ -16,14 +16,6 @@ pub fn calculate_release_amount(
 
     let num_slices = effective_time / slice_period_seconds;
 
-    // amount total 100
-    // released 0
-    // start ts 0
-    // duration 120
-    // slice 60
-
-    // 120 /
-
     let vested_amount = (amount_total as u128)
         .checked_mul(num_slices as u128)
         .unwrap()
